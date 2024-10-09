@@ -30,6 +30,9 @@ use Admin\AdminScm;
 // });
 
 // admin route
+
+
+
 Route::get('/login',[AuthController::class, 'loginShow'])->name('login');
 Route::get('/',[HomeController::class, 'home'])->name('home');
 Route::post('message-store',[ContactController::class,'store'])->name('message.store');
@@ -124,10 +127,6 @@ Route::group(['middleware' => ['auth']] , function(){
 
 
 
-    Route::get('/service-ais',[HomeController::class,'ais'])->name('ais');
-    Route::get('/service-hcm',[HomeController::class,'hcm'])->name('hcm');
-    Route::get('/service-plm',[HomeController::class,'plm'])->name('plm');
-    Route::get('/service-scm',[HomeController::class,'scm'])->name('scm');
 
     Route::resource('admin-ais',  AdminAis::class);
     Route::resource('admin-hcm',  AdminHcm::class);
@@ -138,3 +137,7 @@ Route::group(['middleware' => ['auth']] , function(){
 
 
 
+Route::get('/service-ais',[HomeController::class,'ais'])->name('ais');
+Route::get('/service-hcm',[HomeController::class,'hcm'])->name('hcm');
+Route::get('/service-plm',[HomeController::class,'plm'])->name('plm');
+Route::get('/service-scm',[HomeController::class,'scm'])->name('scm');
