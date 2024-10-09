@@ -30,8 +30,10 @@ use Admin\AdminScm;
 // });
 
 // admin route
-
-
+Route::get('/service-ais',[HomeController::class,'ais'])->name('ais');
+Route::get('/service-hcm',[HomeController::class,'hcm'])->name('hcm');
+Route::get('/service-plm',[HomeController::class,'plm'])->name('plm');
+Route::get('/service-scm',[HomeController::class,'scm'])->name('scm');
 
 Route::get('/login',[AuthController::class, 'loginShow'])->name('login');
 Route::get('/',[HomeController::class, 'home'])->name('home');
@@ -50,6 +52,8 @@ Route::post('/reply', [HomeController::class, 'replyComment'])->name('comments.r
 Route::get('management-list',[HomeController::class,'management'])->name('management.website');
 Route::post('/login-check',[AuthController::class, 'authCheck'])->name('login.check');
 
+
+
 Route::group(['middleware' => ['auth']] , function(){
     Route::get('logout', [AuthController::class, 'logout'])->name('logout');
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.index');
@@ -63,6 +67,7 @@ Route::group(['middleware' => ['auth']] , function(){
     Route::post('password-update', [UserController::class, 'passwordUpdate'])->name('user.passwordUpdate');
 
 });
+
 
 Route::group(['middleware' => ['auth']] , function(){
    //banner Route
@@ -125,9 +130,12 @@ Route::group(['middleware' => ['auth']] , function(){
     Route::get('/edit-blog/{id}',[BlogController::class,'edit'])->name('blog.edit');
     Route::post('/blog-update/{id}',[WhyChooseController::class,'update'])->name('blog.update');
 
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> b0e08615dcc405ee24ed66ad457a47fe467b6e69
     Route::resource('admin-ais',  AdminAis::class);
     Route::resource('admin-hcm',  AdminHcm::class);
     Route::resource('admin-plm',  AdminPlm::class);

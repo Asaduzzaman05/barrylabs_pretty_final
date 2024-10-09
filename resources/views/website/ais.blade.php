@@ -19,6 +19,46 @@
         .description{
             min-height: 300px;
         }
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        li {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-radius: 5px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Added shadow */
+            transition: box-shadow 0.3s ease;
+        }
+        li:hover {
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+        }
+        li h3 {
+            margin: 0 0 10px 0;
+            font-size: 1.5em;
+        }
+        li p {
+            margin: 0;
+        }
+        .read-more-btn {
+            margin-top: 10px;
+            padding: 5px 10px;
+            background-color: #007BFF;
+            color: white;
+            text-decoration: none;
+            border-radius: 3px;
+        }
+        .read-more-btn:hover {
+            background-color: #0056b3;
+        }
+        .section{
+            margin-top: 10px;
+        }
+        .btn-more{
+            margin-top: 10px;
+        }
+
 </style>
 <header>
     <h1>Accounting Information System</h1>
@@ -38,7 +78,76 @@
       {{{$ais_web->description ?? ''}}}
     </div>
 </div>
-
 </div>
+
+<div class="section" >
+    <div class="container">
+        <div class="row">
+            <div class="com-md-12 col-sm-12 col-xs-12 text-right">
+                <h2>Sub Modules Of AIS</h2>
+            </div>
+            <div class="com-md-12 col-sm-12 col-xs-12 text-right">
+                <ul>
+                    <li>
+                        <h3>Company</h3>
+                        <p>Outline how the system manages company data, structure, branches, and legal entities.</p>
+                        <div class="btn-more">
+                            <a href="#" class="read-more-btn">Read more</a>
+                        </div>
+                    </li>
+
+                    <li>
+                        <h3>Transaction</h3>
+                        <p>Explain how the system supports different types of transactions, recording, and reporting.</p>
+                        <div class="btn-more">
+                            <a href="#" class="read-more-btn">Read more</a>
+                        </div>
+                    </li>
+
+                    <li>
+                        <h3>Invoice</h3>
+                        <p>Detailed breakdown of the invoice management process.</p>
+                        <div class="btn-more">
+                            <a href="#" class="read-more-btn">Read more</a>
+                        </div>
+                    </li>
+
+                    <li>
+                        <h3>Courier</h3>
+                        <p>Manage courier services, track shipments.</p>
+                        <div class="btn-more">
+                            <a href="#" class="read-more-btn">Read more</a>
+                        </div>
+                    </li>
+
+                    <li>
+                        <h3>Challan</h3>
+                        <p>Handle shipping documentation (Challan management).</p>
+                        <div class="btn-more">
+                            <a href="#" class="read-more-btn">Read more</a>
+                        </div>
+                    </li>
+
+                    <li>
+                        <h3>Inventory</h3>
+                        <p>Real-time inventory tracking, stock levels, and warehousing.</p>
+                        <div class="btn-more">
+                            <a href="#" class="read-more-btn">Read more</a>
+                        </div>
+                    </li>
+
+                    <li>
+                        <h3>Conveyance</h3>
+                        <p>Manage conveyance allowances and tracking for the company.</p>
+                        <div class="btn-more">
+                            <a href="#" class="read-more-btn">Read more</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 @endsection
