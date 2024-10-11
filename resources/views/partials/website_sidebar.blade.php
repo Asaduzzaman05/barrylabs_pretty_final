@@ -67,46 +67,46 @@
 
                     <div class="dropdown-menu m-0">
                             <div class="dropdown-submenu">
-                                <a href="{{ route('ais') }}" class="dropdown-item " >Accounting Information System</a>
+                                <a href="{{ url('our_service/ais/ais') }}" class="dropdown-item " >Accounting Information System</a>
                                 <div class="dropdown-menu">
-                                    <a href="#" class="dropdown-item">Company</a>
-                                    <a href="product-detail.html" class="dropdown-item">Transaction</a>
-                                    <a href="product-detail.html" class="dropdown-item">Invoice</a>
-                                    <a href="product-detail.html" class="dropdown-item">Courier</a>
-                                    <a href="product-detail.html" class="dropdown-item">Challan</a>
-                                    <a href="product-detail.html" class="dropdown-item">Inventory</a>
-                                    <a href="product-detail.html" class="dropdown-item">Conveyance</a>
+                                    <a href="{{ url('our_service/ais/Company') }}" class="dropdown-item">Company</a>
+                                    <a href="{{ url('our_service/ais/Transaction')}}" class="dropdown-item">Transaction</a>
+                                    <a href="{{ url('our_service/ais/Invoice') }}" class="dropdown-item">Invoice</a>
+                                    <a href="{{ url('our_service/ais/Courier') }}" class="dropdown-item">Courier</a>
+                                    <a href="{{ url('our_service/ais/Challan') }}" class="dropdown-item">Challan</a>
+                                    <a href="{{ url('our_service/ais/Inventory') }}" class="dropdown-item">Inventory</a>
+                                    <a href="{{ url('our_service/ais/Conveyance') }}" class="dropdown-item">Conveyance</a>
                                 </div>
                             </div>
                             <div class="dropdown-submenu">
-                                <a href="{{ route('hcm') }}" class="dropdown-item " >Human Capital Management</a>
+                                <a href="{{ url('our_service/hcm/hcm') }}" class="dropdown-item " >Human Capital Management</a>
                                 <div class="dropdown-menu">
-                                    <a href="product-detail.html" class="dropdown-item">Employee</a>
-                                    <a href="product-detail.html" class="dropdown-item">Salary & Wages</a>
-                                    <a href="product-detail.html" class="dropdown-item">Task Manager</a>
-                                    <a href="product-detail.html" class="dropdown-item">Attendance</a>
-                                    <a href="product-detail.html" class="dropdown-item">Deduction</a>
-                                    <a href="product-detail.html" class="dropdown-item">Recruitment</a>
-                                    <a href="product-detail.html" class="dropdown-item">Aptitude</a>
+                                    <a href="{{ url('our_service/hcm/Employee') }}" class="dropdown-item">Employee</a>
+                                    <a href="{{ url('our_service/hcm/Salary & Wages') }}" class="dropdown-item">Salary & Wages</a>
+                                    <a href="{{ url('our_service/hcm/Task Manager') }}" class="dropdown-item">Task Manager</a>
+                                    <a href="{{ url('our_service/hcm/Attendance') }}" class="dropdown-item">Attendance</a>
+                                    <a href="{{ url('our_service/hcm/Deduction') }}" class="dropdown-item">Deduction</a>
+                                    <a href="{{ url('our_service/hcm/Recruitment') }}" class="dropdown-item">Recruitment</a>
+                                    <a href="{{ url('our_service/hcm/Aptitude') }}" class="dropdown-item">Aptitude</a>
                                 </div>
                             </div>
                             <div class="dropdown-submenu">
-                                <a href="{{ route('plm') }}" class="dropdown-item " >Product Lifecycle Management</a>
+                                <a href="{{ url('our_service/plm/plm')}}" class="dropdown-item " >Product Lifecycle Management</a>
                                 <div class="dropdown-menu">
-                                    <a href="product-detail.html" class="dropdown-item">Style</a>
-                                    <a href="product-detail.html" class="dropdown-item">Budget</a>
-                                    <a href="product-detail.html" class="dropdown-item">T&A</a>
-                                    <a href="product-detail.html" class="dropdown-item">Production</a>
-                                    <a href="product-detail.html" class="dropdown-item">IE</a>
-                                    <a href="product-detail.html" class="dropdown-item">Log</a>
-                                    <a href="product-detail.html" class="dropdown-item">Design</a>
+                                    <a href="{{ url('our_service/plm/Style') }}" class="dropdown-item">Style</a>
+                                    <a href="{{ url('our_service/plm/Budget') }}" class="dropdown-item">Budget</a>
+                                    <a href="{{ url('our_service/plm/T&A') }}" class="dropdown-item">T&A</a>
+                                    <a href="{{ url('our_service/plm/Production') }}" class="dropdown-item">Production</a>
+                                    <a href="{{ url('our_service/plm/IE') }}" class="dropdown-item">IE</a>
+                                    <a href="{{ url('our_service/plm/Log') }}" class="dropdown-item">Log</a>
+                                    <a href="{{ url('our_service/plm/Design')}}" class="dropdown-item">Design</a>
                                 </div>
                             </div>
                             <div class="dropdown-submenu">
-                                <a href="{{ route('scm') }}" class="dropdown-item " > Supply Chain Management</a>
+                                <a href="{{ url('our_service/scm/scm') }}" class="dropdown-item " > Supply Chain Management</a>
                                 <div class="dropdown-menu">
-                                    <a href="product-detail.html" class="dropdown-item">Commercial</a>
-                                    <a href="product-detail.html" class="dropdown-item">Shipping Docs</a>
+                                    <a href="{{url('our_service/scm/Commercial') }}" class="dropdown-item">Commercial</a>
+                                    <a href="{{url('our_service/scm/Shipping Docs')}}" class="dropdown-item">Shipping Docs</a>
                                 </div>
                             </div>
                     </div>

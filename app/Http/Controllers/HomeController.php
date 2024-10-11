@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\AdminService;
+use App\Models\CompanyModel;
 use App\Models\HcmModel;
 use App\Models\Slider;
 use App\Models\Management;
@@ -18,6 +20,12 @@ use Illuminate\Support\Facades\Validator;
 
 use App\Models\AisModel;
 use App\Models\ScmModel;
+use App\Models\TransactionModel;
+use App\Models\InvoiceModel;
+use App\Models\CourierModel;
+use App\Models\ChallanModel;
+use App\Models\InventoryModel;
+
 
 
 class HomeController extends Controller
@@ -140,28 +148,146 @@ class HomeController extends Controller
         return redirect()->back()->with('success', 'Your reply has been posted! ');
     }
         // webside
-    public function ais(){
+    // public function ais(){
 
-        $data['ais_web'] = AisModel::orderBy('id', 'desc')->first();
+    //     $data['ais_web'] = AisModel::orderBy('id', 'desc')->first();
 
-        return view('website.ais')->with( $data);
+    //     return view('website.ais')->with( $data);
+    // }
+    // public function hcm(){
+    //     $data['hcm_web'] = HcmModel::orderBy('id', 'desc')->first();
+    //     return view('website.hcm')->with( $data);
+
+    // }
+    // public function plm(){
+    //     $data['plm_web'] = HcmModel::orderBy('id', 'desc')->first();
+    //     return view('website.plm')->with( $data);
+    // }
+    // public function scm(){
+    //     $data['scm_web'] = ScmModel::orderBy('id', 'desc')->first();
+    //     return view('website.scm')->with( $data);
+    // }
+    // public function company(){
+    //     $data['company'] = CompanyModel::orderBy('id', 'desc')->first();
+    //     return view('website.company')->with( $data);
+    // }
+    // public function transaction(){
+    //     $data['transaction'] = TransactionModel::orderBy('id', 'desc')->first();
+    //     return view('website.transaction')->with( $data);
+    // }
+    // public function invoice(){
+    //     $data['invoice'] = InvoiceModel::orderBy('id', 'desc')->first();
+    //     return view('website.invoice')->with( $data);
+    // }
+    // public function courier(){
+    //     $data['courier'] = CourierModel::orderBy('id', 'desc')->first();
+    //     return view('website.courier')->with( $data);
+    // }
+    // public function challan(){
+    //     $data['challan'] = ChallanModel::orderBy('id', 'desc')->first();
+    //     return view('website.challan')->with( $data);
+    // }
+    // public function inventory(){
+    //     $data['inventory'] = InventoryModel::orderBy('id', 'desc')->first();
+    //     return view('website.inventory')->with( $data);
+    // }
+    // public function conveyance(){
+    //     $data['scm_web'] = ScmModel::orderBy('id', 'desc')->first();
+    //     return view('website.conveyance')->with( $data);
+    // }
+    // public function employee(){
+    //     $data['scm_web'] = ScmModel::orderBy('id', 'desc')->first();
+    //     return view('website.employee')->with( $data);
+    // }
+    // public function wages(){
+    //     $data['scm_web'] = ScmModel::orderBy('id', 'desc')->first();
+    //     return view('website.wages')->with( $data);
+    // }
+    // public function task(){
+    //     $data['scm_web'] = ScmModel::orderBy('id', 'desc')->first();
+    //     return view('website.task')->with( $data);
+    // }
+    // public function attendance(){
+    //     $data['scm_web'] = ScmModel::orderBy('id', 'desc')->first();
+    //     return view('website.attendance')->with( $data);
+    // }
+    // public function deduction(){
+    //     $data['scm_web'] = ScmModel::orderBy('id', 'desc')->first();
+    //     return view('website.deduction')->with( $data);
+    // }
+    // public function recruitment(){
+    //     $data['scm_web'] = ScmModel::orderBy('id', 'desc')->first();
+    //     return view('website.recruitment')->with( $data);
+    // }
+    // public function aptitude(){
+    //     $data['scm_web'] = ScmModel::orderBy('id', 'desc')->first();
+    //     return view('website.aptitude')->with( $data);
+    // }
+    // public function style(){
+    //     $data['scm_web'] = ScmModel::orderBy('id', 'desc')->first();
+    //     return view('website.style')->with( $data);
+    // }
+    // public function budget(){
+    //     $data['scm_web'] = ScmModel::orderBy('id', 'desc')->first();
+    //     return view('website.budget')->with( $data);
+    // }
+    // public function tna(){
+    //     $data['scm_web'] = ScmModel::orderBy('id', 'desc')->first();
+    //     return view('website.tna')->with( $data);
+    // }
+    // public function production(){
+    //     $data['scm_web'] = ScmModel::orderBy('id', 'desc')->first();
+    //     return view('website.production')->with( $data);
+    // }
+    // public function ie(){
+    //     $data['scm_web'] = ScmModel::orderBy('id', 'desc')->first();
+    //     return view('website.ie')->with( $data);
+    // }
+    // public function log(){
+    //     $data['scm_web'] = ScmModel::orderBy('id', 'desc')->first();
+    //     return view('website.log')->with( $data);
+    // }
+    // public function design(){
+    //     $data['scm_web'] = ScmModel::orderBy('id', 'desc')->first();
+    //     return view('website.design')->with( $data);
+    // }
+    // public function commercial(){
+    //     $data['scm_web'] = ScmModel::orderBy('id', 'desc')->first();
+    //     return view('website.commercial')->with( $data);
+    // }
+    // public function docs(){
+    //     $data['scm_web'] = ScmModel::orderBy('id', 'desc')->first();
+    //     return view('website.docs')->with( $data);
+    // }
+
+
+    public function allservice($module, $subModule)
+    {
+
+        $data = [
+            'module' => $module,
+            'subModule' => $subModule,
+
+        ];
+
     }
-    public function hcm(){
-        $data['hcm_web'] = HcmModel::orderBy('id', 'desc')->first();
-        return view('website.hcm')->with( $data);
+    public function WebService($module, $submodule)
+    {
+        $data = [
+            'module' => $module,
+            'submodule' => $submodule,
+        ];
 
-    }
-    public function plm(){
-        $data['plm_web'] = HcmModel::orderBy('id', 'desc')->first();
-        return view('website.plm')->with( $data);
-    }
-    public function scm(){
-        $data['scm_web'] = ScmModel::orderBy('id', 'desc')->first();
-        return view('website.scm')->with( $data);
-    }
+        $data['services'] = AdminService::where('module', $module)
+                                        ->where('submodule', $submodule)
+                                        ->orderBy('created_at', 'desc')
+                                        ->first();
 
-    // Admin
+        $data['submodules'] = AdminService::where('module', $module)
+                                        ->get();
 
+        return view('website.website_service')->with($data);
+    }
 }
 
 

@@ -58,59 +58,62 @@
                 <a href="{{ route('about.website') }}" class="nav-item nav-link {{ Route::currentRouteName() == 'about.website' ? 'active' : '' }}">About Us</a>
                 <a href="{{ route('service.website') }}" class="nav-item nav-link {{ Route::currentRouteName() == 'service.website' ? 'active' : '' }}">Products </a>
 
-                <div class="nav-item dropdown">
-                    <a href="{{ route('service.website') }}"
-                       class="nav-link dropdown-toggle {{ in_array(Route::currentRouteName(), ['ais', 'hcm', 'plm', 'scm']) ? 'active' : '' }}"
-                       data-bs-toggle="dropdown">Service</a>
 
-                    <div class="dropdown-menu m-0">
-                            <div class="dropdown-submenu">
-                                <a href="{{ route('ais') }}" class="dropdown-item " >Accounting Information System</a>
-                                <div class="dropdown-menu">
-                                    <a href="#" class="dropdown-item">Company</a>
-                                    <a href="product-detail.html" class="dropdown-item">Transaction</a>
-                                    <a href="product-detail.html" class="dropdown-item">Invoice</a>
-                                    <a href="product-detail.html" class="dropdown-item">Courier</a>
-                                    <a href="product-detail.html" class="dropdown-item">Challan</a>
-                                    <a href="product-detail.html" class="dropdown-item">Inventory</a>
-                                    <a href="product-detail.html" class="dropdown-item">Conveyance</a>
+                    <div class="nav-item dropdown">
+                        <a href="{{ route('service.website') }}"
+                           class="nav-link dropdown-toggle {{ in_array(Route::currentRouteName(), ['ais', 'hcm', 'plm', 'scm']) ? 'active' : '' }}"
+                           data-bs-toggle="dropdown">Service</a>
+
+                        <div class="dropdown-menu m-0">
+                                <div class="dropdown-submenu">
+                                    <a href="{{ url('our_service/ais/ais') }}" class="dropdown-item " >Accounting Information System</a>
+                                    <div class="dropdown-menu">
+                                        <a href="{{ url('our_service/ais/Company') }}" class="dropdown-item">Company</a>
+                                        <a href="{{ url('our_service/ais/Transaction') }}" class="dropdown-item">Transaction</a>
+                                        <a href="{{ url('our_service/ais/Invoice') }}" class="dropdown-item">Invoice</a>
+                                        <a href="{{ url('our_service/ais/Courier') }}" class="dropdown-item">Courier</a>
+                                        <a href="{{ url('our_service/ais/Challan') }}" class="dropdown-item">Challan</a>
+                                        <a href="{{ url('our_service/ais/Inventory') }}}" class="dropdown-item">Inventory</a>
+                                        <a href="{{ url('our_service/ais/Conveyance') }}" class="dropdown-item">Conveyance</a>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="dropdown-submenu">
-                                <a href="{{ route('hcm') }}" class="dropdown-item " >Human Capital Management</a>
-                                <div class="dropdown-menu">
-                                    <a href="product-detail.html" class="dropdown-item">Employee</a>
-                                    <a href="product-detail.html" class="dropdown-item">Salary & Wages</a>
-                                    <a href="product-detail.html" class="dropdown-item">Task Manager</a>
-                                    <a href="product-detail.html" class="dropdown-item">Attendance</a>
-                                    <a href="product-detail.html" class="dropdown-item">Deduction</a>
-                                    <a href="product-detail.html" class="dropdown-item">Recruitment</a>
-                                    <a href="product-detail.html" class="dropdown-item">Aptitude</a>
+                                <div class="dropdown-submenu">
+                                    <a href="{{ url('our_service/hcm/hcm') }}" class="dropdown-item " >Human Capital Management</a>
+                                    <div class="dropdown-menu">
+                                        <a href="{{ url('our_service/hcm/Employee') }}" class="dropdown-item">Employee</a>
+                                        <a href="{{ url('our_service/hcm/Salary & Wages') }}" class="dropdown-item">Salary & Wages</a>
+                                        <a href="{{ url('our_service/hcm/Task Manager') }}" class="dropdown-item">Task Manager</a>
+                                        <a href="{{ url('our_service/hcm/Attendance') }}" class="dropdown-item">Attendance</a>
+                                        <a href="{{ url('our_service/hcm/Deduction') }}" class="dropdown-item">Deduction</a>
+                                        <a href="{{ url('our_service/hcm/Recruitment') }}" class="dropdown-item">Recruitment</a>
+                                        <a href="{{ url('our_service/hcm/Aptitude') }}" class="dropdown-item">Aptitude</a>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="dropdown-submenu">
-                                <a href="{{ route('plm') }}" class="dropdown-item " >Product Lifecycle Management</a>
-                                <div class="dropdown-menu">
-                                    <a href="product-detail.html" class="dropdown-item">Style</a>
-                                    <a href="product-detail.html" class="dropdown-item">Budget</a>
-                                    <a href="product-detail.html" class="dropdown-item">T&A</a>
-                                    <a href="product-detail.html" class="dropdown-item">Production</a>
-                                    <a href="product-detail.html" class="dropdown-item">IE</a>
-                                    <a href="product-detail.html" class="dropdown-item">Log</a>
-                                    <a href="product-detail.html" class="dropdown-item">Design</a>
+                                <div class="dropdown-submenu">
+                                    <a href="{{ url('our_service/plm/plm')}}" class="dropdown-item " >Product Lifecycle Management</a>
+                                    <div class="dropdown-menu">
+                                        <a href="{{ url('our_service/plm/Style')}}" class="dropdown-item">Style</a>
+                                        <a href="{{ url('our_service/plm/Budget')}}" class="dropdown-item">Budget</a>
+                                        <a href="{{ url('our_service/plm/T&A')}}" class="dropdown-item">T&A</a>
+                                        <a href="{{ url('our_service/plm/Production')}}" class="dropdown-item">Production</a>
+                                        <a href="{{ url('our_service/plm/IE')}}" class="dropdown-item">IE</a>
+                                        <a href="{{ url('our_service/plm/Log')}}" class="dropdown-item">Log</a>
+                                        <a href="{{ url('our_service/plm/Design')}}" class="dropdown-item">Design</a>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="{{ route('scm') }}">
-                                <a href="project.html" class="dropdown-item " > Supply Chain Management</a>
-                                <div class="dropdown-menu">
-                                    <a href="product-detail.html" class="dropdown-item">Commercial</a>
-                                    <a href="product-detail.html" class="dropdown-item">Shipping Docs</a>
+                                <div class="dropdown-submenu">
+                                    <a href="{{ url('our_service/scm/scm') }}" class="dropdown-item " > Supply Chain Management</a>
+                                    <div class="dropdown-menu">
+                                        <a href="{{ url('our_service/scm/Commercial') }}" class="dropdown-item">Commercial</a>
+                                        <a href="{{ url('our_service/scm/Shipping Docs') }}" class="dropdown-item">Shipping Docs</a>
+                                    </div>
                                 </div>
-                            </div>
+                        </div>
                     </div>
+                    <a href="{{ route('contact.website') }}" class="nav-item nav-link ">Contact</a>
+                    <a href="{{ route('blog.website') }}" class="nav-item nav-link">Blogs</a>
                 </div>
-                <a href="{{ route('contact.website') }}" class="nav-item nav-link ">Contact</a>
-                <a href="{{ route('blog.website') }}" class="nav-item nav-link">Blogs</a>
+
 
             </div>
         </div>
@@ -266,17 +269,25 @@
     <div class="container">
         <div class="section-title text-center position-relative pb-3 mb-3 mx-auto" style="max-width: 600px;">
             {{-- <h5 class="fw-bold text-primary text-uppercase">Our Services</h5> --}}
-            <h1 class="mb-0 second-title fw-bold text-primary text-uppercase">Our Services</h1>
+            <h1 class="mb-0 second-title fw-bold text-primary text-uppercase">Our Products</h1>
         </div>
         <div class="row g-3">
             @foreach ($services as $item)
+           @php
+               $stype = substr($item->name, 0, 3); $slink = '';
+               if ($stype == 'SCM') { $slink = 'scm/scm'; }
+               if ($stype == 'HCM') { $slink = 'hcm/hcm'; }
+               if ($stype == 'AIS') { $slink = 'ais/ais'; }
+               if ($stype == 'PLM') { $slink = 'plm/plm'; }
+           @endphp
             <div class="col-lg-3 col-md-3 wow zoomIn" data-wow-delay="0.9s">
                 <div class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
                     <div class="service-icon">
                     <img class="w-50" src="{{ asset($item->image) }}" alt="">
                     </div>
                     <h4 class="mb-3">{{ $item->name }}</h4>
-                    <p class="m-0 service-description">{!! Str::limit($item->description, 78) !!}</p>
+                    <p class="m-0 service-description">{!! Str::limit($item->description, 40) !!}</p>
+                    <a href="{{ url('/our_service/'.$slink) }}">Read More</a>
                 </div>
             </div>
             @endforeach
@@ -393,10 +404,10 @@
 </div>
 <!-- Quote End -->
 <!-- Team Start -->
-<div class="container-fluid py-3 wow fadeInUp" data-wow-delay="0.1s">
+{{-- <div class="container-fluid py-3 wow fadeInUp" data-wow-delay="0.1s">
     <div class="container">
         <div class="section-title text-center position-relative pb-3 mb-3 mx-auto" style="max-width: 600px;">
-            {{-- <h5 class="fw-bold text-primary text-uppercase">Team Members</h5> --}}
+
             <h1 class="mb-0 second-title text-uppercase text-primary fw-bold">Team Members</h1>
         </div>
         <div class="owl-carousel team-carousel">
@@ -420,7 +431,7 @@
             @endforeach
         </div>
     </div>
-</div>
+</div> --}}
 <!-- Team End -->
 <!-- Photo Gallery Start -->
 {{-- <div class="container-fluid py-3 wow fadeInUp" data-wow-delay="0.1s">
@@ -457,10 +468,10 @@
 </div> --}}
 <!-- Photo Gallery End -->
 <!-- Vendor Start -->
-<div class="container-fluid mt-2 wow fadeInUp" data-wow-delay="0.1s">
+{{-- <div class="container-fluid mt-2 wow fadeInUp" data-wow-delay="0.1s">
     <div class="container mb-3">
         <div class="section-title text-center position-relative pb-3 mb-3 mx-auto" style="max-width: 600px;">
-            {{-- <h5 class="fw-bold text-primary text-uppercase">Our Client</h5> --}}
+
             <h5 class="mb-0 second-title fw-bold text-primary text-uppercase">Our Client</h5>
         </div>
         <div class="bg-white">
@@ -473,6 +484,6 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 <!-- Vendor End -->
 @endsection

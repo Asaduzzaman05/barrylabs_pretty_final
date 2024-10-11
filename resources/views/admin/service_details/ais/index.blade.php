@@ -15,7 +15,7 @@
                     </div>
                         <div class="card-body table-card-body p-3">
 
-                        <form action="{{ url('admin-ais') }}" id="chooseUsStore" class="chooseUsForm"  method="POST" enctype="multipart/form-data">
+                        <form action="{{ url('admin-company') }}" id="chooseUsStore" class="chooseUsForm"  method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
                                 <label for="title">Title</label>

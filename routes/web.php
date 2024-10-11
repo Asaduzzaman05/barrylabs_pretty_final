@@ -1,5 +1,6 @@
 <?php
 
+// use AdminServiceController;
 use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -23,6 +24,13 @@ use Admin\AdminAis;
 use Admin\AdminHcm;
 use Admin\AdminPlm;
 use Admin\AdminScm;
+use Admin\Company;
+use Admin\Transaction;
+use Admin\Invoice;
+use Admin\Courier;
+use Admin\Challan;
+use Admin\Inventory;
+use Admin\Conveyance;
 
 
 // Route::get('/', function () {
@@ -30,10 +38,7 @@ use Admin\AdminScm;
 // });
 
 // admin route
-Route::get('/service-ais',[HomeController::class,'ais'])->name('ais');
-Route::get('/service-hcm',[HomeController::class,'hcm'])->name('hcm');
-Route::get('/service-plm',[HomeController::class,'plm'])->name('plm');
-Route::get('/service-scm',[HomeController::class,'scm'])->name('scm');
+
 
 Route::get('/login',[AuthController::class, 'loginShow'])->name('login');
 Route::get('/',[HomeController::class, 'home'])->name('home');
@@ -130,12 +135,69 @@ Route::group(['middleware' => ['auth']] , function(){
     Route::get('/edit-blog/{id}',[BlogController::class,'edit'])->name('blog.edit');
     Route::post('/blog-update/{id}',[WhyChooseController::class,'update'])->name('blog.update');
 
+
+
     Route::resource('admin-ais',  AdminAis::class);
+         Route::resource('admin-company',  Company::class);
+         Route::resource('admin-transaction',  Transaction::class);
+         Route::resource('admin-invoice',  Invoice::class);
+         Route::resource('admin-courier',  Courier::class);
+         Route::resource('admin-challan',  Challan::class);
+         Route::resource('admin-inventory',  Inventory::class);
+         Route::resource('admin-conveyance',  Conveyance::class);
+
+
+
     Route::resource('admin-hcm',  AdminHcm::class);
     Route::resource('admin-plm',  AdminPlm::class);
     Route::resource('admin-scm',  AdminScm::class);
-
 });
+
+
+
+// Route::get('/service-ais',[HomeController::class,'ais'])->name('ais');
+//     Route::get('/service-company',[HomeController::class,'company'])->name('company');
+//     Route::get('/service-transaction',[HomeController::class,'transaction'])->name('transaction');
+//     Route::get('/service-invoice',[HomeController::class,'invoice'])->name('invoice');
+//     Route::get('/service-courier',[HomeController::class,'courier'])->name('courier');
+//     Route::get('/service-challan',[HomeController::class,'challan'])->name('challan');
+//     Route::get('/service-challan',[HomeController::class,'challan'])->name('challan');
+//     Route::get('/service-inventory',[HomeController::class,'inventory'])->name('inventory');
+//     Route::get('/service-conveyance',[HomeController::class,'conveyance'])->name('conveyance');
+
+// Route::get('/service-hcm',[HomeController::class,'hcm'])->name('hcm');
+//     Route::get('/service-employee',[HomeController::class,'employee'])->name('employee');
+//     Route::get('/service-employee',[HomeController::class,'employee'])->name('employee');
+//     Route::get('/service-wages',[HomeController::class,'wages'])->name('wages');
+//     Route::get('/service-task',[HomeController::class,'task'])->name('task');
+//     Route::get('/service-attendance',[HomeController::class,'attendance'])->name('attendance');
+//     Route::get('/service-deduction',[HomeController::class,'deduction'])->name('deduction');
+//     Route::get('/service-recruitment',[HomeController::class,'recruitment'])->name('recruitment');
+//     Route::get('/service-aptitude',[HomeController::class,'aptitude'])->name('aptitude');
+
+
+// Route::get('/service-plm',[HomeController::class,'plm'])->name('plm');
+//     Route::get('/service-style',[HomeController::class,'style'])->name('style');
+//     Route::get('/service-budget',[HomeController::class,'budget'])->name('budget');
+//     Route::get('/service-tna',[HomeController::class,'tna'])->name('tna');
+//     Route::get('/service-production',[HomeController::class,'production'])->name('production');
+//     Route::get('/service-ie',[HomeController::class,'ie'])->name('ie');
+//     Route::get('/service-log',[HomeController::class,'log'])->name('log');
+//     Route::get('/service-design',[HomeController::class,'design'])->name('design');
+
+
+// Route::get('/service-scm',[HomeController::class,'scm'])->name('scm');
+// Route::get('/service-commercial',[HomeController::class,'commercial'])->name('commercial');
+// Route::get('/service-docs',[HomeController::class,'docs'])->name('docs');
+
+Route::get('/service/{module}/{submodule}',[HomeController::class,'allservice']);
+Route::resource('admin-service',  AdminServiceController::class);
+Route::get('service-create/{module}/{submodule}',  [\App\Http\Controllers\AdminServiceController::class, 'index2']);
+Route::get('admin-service/edit/{id}', [\App\Http\Controllers\AdminServiceController::class, 'edit'])->name('admin-service.edit');
+Route::delete('admin-service/{id}', [\App\Http\Controllers\AdminServiceController::class, 'destroy']);
+
+Route::get('our_service/{module}/{submodule}',[HomeController::class,'WebService'])->name('our_service');
+
 
 
 

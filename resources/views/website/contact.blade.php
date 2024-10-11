@@ -3,13 +3,23 @@
 @section('website-content')
 
  @include('partials.website_sidebar')
-    <div class="container-fluid bg-primary py-2 bg-header" style="margin-bottom: 24px;">
-        <div class="row py-2">
-            <div class="col-12 pt-lg-5 mt-lg-5 text-center">
-                <h1 class="text-white animated zoomIn mb-3 common-page-title">Contact</h1> <a href="" class="h5 text-white">Home</a> <i class="fa fa-angle-double-right text-white px-2"></i> <a href="" class="h5 text-white">Contact</a>
-            </div>
-        </div>
-    </div>
+<style>
+    header {
+    padding: 20px 0;
+    text-align: center;
+    color: white;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    font-weight: 300;
+}
+</style>
+    <header class="col-sm-12 col-xs-12 col-md-12 ">
+        <h1>Contact Us</h1>
+    </header>
+
 </div>
 <div class="modal fade" id="searchModal" tabindex="-1">
     <div class="modal-dialog modal-fullscreen">
@@ -24,7 +34,7 @@
 <div class="container-fluid wow fadeInUp" data-wow-delay="0.1s">
     <div class="container">
         <div class="section-title-1 text-center position-relative pb-3 mb-3 mx-auto" style="max-width: 600px;">
-            <h5 class="fw-bold text-primary text-uppercase">Contact Us</h5>
+            <h5 class="fw-bold text-primary text-uppercase"></h5>
             {{-- <h1 class="mb-0">If You Have Any Query, Feel Free To Contact Us</h1> --}}
         </div>
         <div class="row g-5 mb-5">

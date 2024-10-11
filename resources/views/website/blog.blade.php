@@ -5,7 +5,7 @@
 
   <style>
         header {
-            background-color: #2c3e50;
+            background-color: #87baec;
             padding: 20px 0;
             text-align: center;
             color: white;
@@ -13,6 +13,7 @@
 
         header h1 {
             margin: 0;
+            margin-top: 10px;
             font-size: 2.5rem;
             font-weight: 300;
         }
@@ -74,38 +75,46 @@
             display: flex;
             align-items: center;
         }
+        body{
+            overflow-x: hidden;
+        }
+
+        @media (max-width: 576px){
+            header h1{
+                font-size: 20px !important;
+            }
+        }
 
     </style>
 
 
     <!-- Header -->
-    <header>
+    <header class="col-sm-12 col-xs-12 col-md-12 ">
         <h1>ERP Solutions Blog</h1>
     </header>
 
     <!-- Blog Section -->
-    <div class="container" style="position: relative">
+    <div class="container wow fadeInUp"  data-wow-delay="0.1s" style="position: relative">
         @foreach ($blogs as $blog)
-        <div class="blog-card d-flex align-items-start mb-4"> <!-- Use d-flex to enable flexbox -->
-            <div class="content flex-grow-1"> <!-- Make this grow to take available space -->
-                <h2>{{ $blog->title }}</h2>
-                <p>{{ \Illuminate\Support\Str::limit($blog->description, 100, '...') }}</p>
-                <p><strong>Views: {{ $blog->views }}</strong></p>
-                <p><strong>Comments: {{ $blog->comments->count() }}</strong></p>
-                <a href="{{ route('blog.details', ['id' => $blog->id]) }}" class="read-more">Read More</a>
+            <div class="blog-card d-flex flex-column flex-md-row align-items-start mb-4">
+                <div class="content flex-grow-1 mb-3 mb-md-0">
+                    <h2 class="h5">{{ $blog->title ?? '' }}</h2>
+                    <p>{{ \Illuminate\Support\Str::limit($blog->description ?? '', 100, '...') }}</p>
+                    <p><strong>Views: {{ $blog->views }}</strong></p>
+                    <p><strong>Comments: {{ $blog->comments->count() }}</strong></p>
+                    <a href="{{ route('blog.details', ['id' => $blog->id]) }}" class="btn btn-primary">Read More</a>
+                </div>
+
+                <div class="image-container wow fadeInUp"  data-wow-delay="0.1s" >
+                    @if($blog->image_path)
+                        <img src="{{ asset('public/' . $blog->image_path) }}" alt="No Image" class="img-fluid" style="max-width: 200px;">
+                    @else
+                        <p>No Image Available</p>
+                    @endif
+                </div>
             </div>
 
-            <div class="image-container"> <!-- This will hold the image -->
-                @if($blog->image_path)
-                    <img src="{{ asset('public/' .$blog->image_path) }}" alt="Blog Image" class="img-fluid" style="max-width: 200px;">
-                @else
-                    <p>No image available.</p>
-                @endif
-            </div>
-
-
-        </div>
-    @endforeach
+         @endforeach
 
     </div>
 
