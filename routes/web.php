@@ -135,8 +135,17 @@ Route::group(['middleware' => ['auth']] , function(){
     Route::get('/edit-blog/{id}',[BlogController::class,'edit'])->name('blog.edit');
     Route::post('/blog-update/{id}',[WhyChooseController::class,'update'])->name('blog.update');
 
+<<<<<<< HEAD
 
 
+=======
+<<<<<<< HEAD
+
+
+
+=======
+>>>>>>> b0e08615dcc405ee24ed66ad457a47fe467b6e69
+>>>>>>> 00ce2bb1dc5ad6b309348dd9a872833e2c94498e
     Route::resource('admin-ais',  AdminAis::class);
          Route::resource('admin-company',  Company::class);
          Route::resource('admin-transaction',  Transaction::class);
@@ -155,6 +164,7 @@ Route::group(['middleware' => ['auth']] , function(){
 
 
 
+<<<<<<< HEAD
 // Route::get('/service-ais',[HomeController::class,'ais'])->name('ais');
 //     Route::get('/service-company',[HomeController::class,'company'])->name('company');
 //     Route::get('/service-transaction',[HomeController::class,'transaction'])->name('transaction');
@@ -201,3 +211,9 @@ Route::get('our_service/{module}/{submodule}',[HomeController::class,'WebService
 
 
 
+=======
+Route::get('/service-ais',[HomeController::class,'ais'])->name('ais');
+Route::get('/service-hcm',[HomeController::class,'hcm'])->name('hcm');
+Route::get('/service-plm',[HomeController::class,'plm'])->name('plm');
+Route::get('/service-scm',[HomeController::class,'scm'])->name('scm');
+>>>>>>> 00ce2bb1dc5ad6b309348dd9a872833e2c94498e
