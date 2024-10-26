@@ -4,38 +4,45 @@
 @include('partials.website_sidebar')
 
 <style>
-     header {
-            background-color: #9fc6ed;
-            padding: 20px 0;
-            text-align: center;
-            color: white;
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 2.5rem;
-            font-weight: 300;
-        }
         .description{
             min-height: 300px;
         }
+        .image-section{
+            height: 400px;
+            width: 100%;
+        }
+        .about-image{
+            height: 300px ;
+            width: 50%;
+        }
+        .image-section {
+    position: relative; /* If you still need a specific positioning */
+    overflow: hidden; /* Ensures no overflow if image exceeds the container */
+}
+
+.image-section img {
+    object-fit: cover; /* Adjusts image to fill container while maintaining aspect ratio */
+}
 </style>
 
 <header>
-    <h1>About Us</h1>
+    <h1></h1>
 </header>
-
-
 <!-- About Start -->
-<div class="container-fluid wow fadeInUp" data-wow-delay="0.1s">
-    <div class="container">
-        <div class="row g-5">
-            <div class="col-lg-7" style="text-align: justify !important;">
+<div class="container-fluid wow fadeInUp" data-wow-delay="0.1s" style="padding-top:3%;background-color:#f8f8f8">
+    <div class="container" >
+        <div class="row g-5" >
+            <div class="col-lg-12" style="text-align: justify !important;">
+                <div class="row">
                 <div class="section-title position-relative pb-2 mb-2">
                     {{-- <h5 class="fw-bold text-primary text-uppercase">About Us</h5> --}}
-                    <h1 class="mb-0">About Us</h1>
+                    <h1 class="mb-0 pd-top" >About Us</h1>
                 </div>
-                <p class="mb-4 service-description " >{!! $content->about_description !!}</p>
+                <div class="col-md-12 image-section">
+                    <img class="img-fluid rounded wow zoomIn" data-wow-delay="0.9s" src="{{ asset($content->about_image) }}" alt="About Image">
+                </div>
+
+                <p class="mb-4 service-description " style="text-align: justify !important;">{!! $content->about_description !!}</p>
                 {{-- <div class="row g-0 mb-3">
                     <div class="col-sm-6 wow zoomIn" data-wow-delay="0.2s">
                         <h5 class="mb-3"><i class="fa fa-check text-primary me-3"></i>Award Winning</h5>
@@ -56,12 +63,13 @@
                     </div>
                 </div> --}}
             </div>
-            <div class="col-lg-5 mb-3" style="min-height: 500px;">
-                <div class="position-relative h-100">
-                    <img class="position-absolute w-100 h-100 rounded wow zoomIn" data-wow-delay="0.9s" src="{{ asset($content->about_image) }}" style="object-fit: cover;">
+            {{-- <div class="col-lg-5 mb-3" style="min-height: 500px;padding-top:18%">
+                <div class="position-relative h-100" style="padding-top: 10%" >
+                    <img class="position-absolute w-100  rounded wow zoomIn" data-wow-delay="0.9s" src="{{ asset($content->about_image) }}" style="object-fit: cover;">
                 </div>
             </div>
-        </div>
+        </div> --}}
+    </div>
     </div>
 </div>
 <!-- About End -->

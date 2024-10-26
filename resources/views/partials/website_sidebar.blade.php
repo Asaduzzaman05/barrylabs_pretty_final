@@ -2,21 +2,30 @@
     /* Custom styles for submenu */
 .dropdown-submenu {
     position: relative;
-
 }
 
 .dropdown-submenu .dropdown-menu {
     top: 0;
-    left: -65%; /* Position submenu to the right of the parent */
+    left: -65%;
     margin-top: -1px;
     display: none;
+    color: black !important;
 }
 
 .dropdown-submenu:hover .dropdown-menu {
     display: block;
 }
 
+.dropdown-menu a{
+    color: black !important;
+}
+.dropdown-submenu .dropdown-item{
+    color: black !important;
+}
 
+.dropdown-submenu a{
+    height: 30px;
+}
 </style>
 {{-- start top navber --}}
 <div class="container-fluid bg-dark px-5 d-none d-lg-block">
@@ -34,7 +43,7 @@
       <div class="col-lg-4 text-center text-lg-end">
         <div class="d-inline-flex align-items-center" style="height: 45px;">
           <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="{{ $content->twitter }}">
-            <i class="fab fa-twitter fw-normal"></i>
+            <i class="fab fa-whatsapp fw-normal"></i>
           </a>
           <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="{{ $content->facebook }}">
             <i class="fab fa-facebook-f fw-normal"></i>
@@ -45,6 +54,9 @@
           <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="{{ $content->instagram }}">
             <i class="fab fa-instagram fw-normal"></i>
           </a>
+          {{-- <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="{{ $content->instagram }}">
+            <img src="{{ asset('public/uploads/instra.jpeg') }}" alt="Instagram" style="width: 20px; height: 20px;">
+        </a> --}}
         </div>
       </div>
     </div>
@@ -62,51 +74,51 @@
 
                 <div class="nav-item dropdown">
                     <a href="{{ route('service.website') }}"
-                       class="nav-link dropdown-toggle {{ in_array(Route::currentRouteName(), ['ais', 'hcm', 'plm', 'scm']) ? 'active' : '' }}"
+                       class="nav-link dropdown-toggle {{Route::currentRouteName() == 'our_service' ? 'active' : '' }}"
                        data-bs-toggle="dropdown">Service</a>
 
-                    <div class="dropdown-menu m-0">
-                            <div class="dropdown-submenu">
-                                <a href="{{ url('our_service/ais/ais') }}" class="dropdown-item " >Accounting Information System</a>
-                                <div class="dropdown-menu">
-                                    <a href="{{ url('our_service/ais/Company') }}" class="dropdown-item">Company</a>
-                                    <a href="{{ url('our_service/ais/Transaction')}}" class="dropdown-item">Transaction</a>
-                                    <a href="{{ url('our_service/ais/Invoice') }}" class="dropdown-item">Invoice</a>
-                                    <a href="{{ url('our_service/ais/Courier') }}" class="dropdown-item">Courier</a>
-                                    <a href="{{ url('our_service/ais/Challan') }}" class="dropdown-item">Challan</a>
-                                    <a href="{{ url('our_service/ais/Inventory') }}" class="dropdown-item">Inventory</a>
-                                    <a href="{{ url('our_service/ais/Conveyance') }}" class="dropdown-item">Conveyance</a>
+                    <div class="dropdown-menu m-0" >
+                            <div class="dropdown-submenu navbar-nav wow zoomIn">
+                                <a href="{{ url('our_service/ais/ais') }}" class="dropdown-item  nav-item nav-link " >Accounting Information System</a>
+                                <div class="dropdown-menu wow zoomIn">
+                                    <a href="{{ url('our_service/ais/Company') }}" class="dropdown-item  nav-item nav-link">Company</a>
+                                    <a href="{{ url('our_service/ais/Transaction')}}" class="dropdown-item  nav-item nav-link" >Transaction</a>
+                                    <a href="{{ url('our_service/ais/Invoice') }}" class="dropdown-item  nav-item nav-link" >Invoice</a>
+                                    <a href="{{ url('our_service/ais/Courier') }}" class="dropdown-item  nav-item nav-link" >Courier</a>
+                                    <a href="{{ url('our_service/ais/Challan') }}" class="dropdown-item  nav-item nav-link" >Challan</a>
+                                    <a href="{{ url('our_service/ais/Inventory') }}" class="dropdown-item  nav-item nav-link" >Inventory</a>
+                                    <a href="{{ url('our_service/ais/Conveyance') }}" class="dropdown-item  nav-item nav-link" >Conveyance</a>
                                 </div>
                             </div>
-                            <div class="dropdown-submenu">
-                                <a href="{{ url('our_service/hcm/hcm') }}" class="dropdown-item " >Human Capital Management</a>
-                                <div class="dropdown-menu">
-                                    <a href="{{ url('our_service/hcm/Employee') }}" class="dropdown-item">Employee</a>
-                                    <a href="{{ url('our_service/hcm/Salary & Wages') }}" class="dropdown-item">Salary & Wages</a>
-                                    <a href="{{ url('our_service/hcm/Task Manager') }}" class="dropdown-item">Task Manager</a>
-                                    <a href="{{ url('our_service/hcm/Attendance') }}" class="dropdown-item">Attendance</a>
-                                    <a href="{{ url('our_service/hcm/Deduction') }}" class="dropdown-item">Deduction</a>
-                                    <a href="{{ url('our_service/hcm/Recruitment') }}" class="dropdown-item">Recruitment</a>
-                                    <a href="{{ url('our_service/hcm/Aptitude') }}" class="dropdown-item">Aptitude</a>
+                            <div class="dropdown-submenu navbar-nav wow zoomIn">
+                                <a href="{{ url('our_service/hcm/hcm') }}" class="dropdown-item  nav-item nav-link  " >Human Capital Management</a>
+                                <div class="dropdown-menu wow zoomIn">
+                                    <a href="{{ url('our_service/hcm/Employee') }}" class="dropdown-item  nav-item nav-link" >Employee</a>
+                                    <a href="{{ url('our_service/hcm/Salary & Wages') }}" class="dropdown-item  nav-item nav-link" >Salary & Wages</a>
+                                    <a href="{{ url('our_service/hcm/Task Manager') }}" class="dropdown-item  nav-item nav-link" >Task Manager</a>
+                                    <a href="{{ url('our_service/hcm/Attendance') }}" class="dropdown-item  nav-item nav-link" >Attendance</a>
+                                    <a href="{{ url('our_service/hcm/Deduction') }}" class="dropdown-item  nav-item nav-link" >Deduction</a>
+                                    <a href="{{ url('our_service/hcm/Recruitment') }}" class="dropdown-item  nav-item nav-link" >Recruitment</a>
+                                    <a href="{{ url('our_service/hcm/Aptitude') }}" class="dropdown-item  nav-item nav-link" >Aptitude</a>
                                 </div>
                             </div>
-                            <div class="dropdown-submenu">
-                                <a href="{{ url('our_service/plm/plm')}}" class="dropdown-item " >Product Lifecycle Management</a>
-                                <div class="dropdown-menu">
-                                    <a href="{{ url('our_service/plm/Style') }}" class="dropdown-item">Style</a>
-                                    <a href="{{ url('our_service/plm/Budget') }}" class="dropdown-item">Budget</a>
-                                    <a href="{{ url('our_service/plm/T&A') }}" class="dropdown-item">T&A</a>
-                                    <a href="{{ url('our_service/plm/Production') }}" class="dropdown-item">Production</a>
-                                    <a href="{{ url('our_service/plm/IE') }}" class="dropdown-item">IE</a>
-                                    <a href="{{ url('our_service/plm/Log') }}" class="dropdown-item">Log</a>
-                                    <a href="{{ url('our_service/plm/Design')}}" class="dropdown-item">Design</a>
+                            <div class="dropdown-submenu navbar-nav wow zoomIn">
+                                <a href="{{ url('our_service/plm/plm')}}" class="dropdown-item  nav-item nav-link  " >Product Lifecycle Management</a>
+                                <div class="dropdown-menu wow zoomIn">
+                                    <a href="{{ url('our_service/plm/Style') }}" class="dropdown-item  nav-item nav-link" >Style</a>
+                                    <a href="{{ url('our_service/plm/Budget') }}" class="dropdown-item  nav-item nav-link" >Budget</a>
+                                    <a href="{{ url('our_service/plm/T&A') }}" class="dropdown-item  nav-item nav-link" >T&A</a>
+                                    <a href="{{ url('our_service/plm/Production') }}" class="dropdown-item  nav-item nav-link" >Production</a>
+                                    <a href="{{ url('our_service/plm/IE') }}" class="dropdown-item  nav-item nav-link" >IE</a>
+                                    <a href="{{ url('our_service/plm/Log') }}" class="dropdown-item  nav-item nav-link" >Log</a>
+                                    <a href="{{ url('our_service/plm/Design')}}" class="dropdown-item  nav-item nav-link" >Design</a>
                                 </div>
                             </div>
-                            <div class="dropdown-submenu">
-                                <a href="{{ url('our_service/scm/scm') }}" class="dropdown-item " > Supply Chain Management</a>
-                                <div class="dropdown-menu">
-                                    <a href="{{url('our_service/scm/Commercial') }}" class="dropdown-item">Commercial</a>
-                                    <a href="{{url('our_service/scm/Shipping Docs')}}" class="dropdown-item">Shipping Docs</a>
+                            <div class="dropdown-submenu navbar-nav wow zoomIn">
+                                <a href="{{ url('our_service/scm/scm') }}" class="dropdown-item  nav-item nav-link  " > Supply Chain Management</a>
+                                <div class="dropdown-menu wow zoomIn">
+                                    <a href="{{url('our_service/scm/Commercial') }}" class="dropdown-item  nav-item nav-link" >Commercial</a>
+                                    <a href="{{url('our_service/scm/Shipping Docs')}}" class="dropdown-item  nav-item nav-link" >Shipping Docs</a>
                                 </div>
                             </div>
                     </div>

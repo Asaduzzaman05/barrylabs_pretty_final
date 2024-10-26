@@ -56,18 +56,22 @@
         .back-link:hover {
             background-color: #1abc9c;
         }
+        .blog-section{
+            min-height: 800px;
+            height: 1200px;
 
+        }
 
     </style>
 
 
     <!-- Header -->
-    <header>
+    <header >
         <h1>ERP Solutions Blog</h1>
     </header>
 
     <!-- Blog Post Content -->
-    <div class="container">
+    <div class="container blog-section" style="padding-top: 3%;background-color:#f8f8f8">
         <h2 class="blog-title">{{ $blogs->title }}</h2>
 
         <div class="blog-content">

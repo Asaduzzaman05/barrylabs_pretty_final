@@ -23,10 +23,10 @@
 </style>
 
 <header>
-   <h1>Our Product</h1>
+  <div class="section-title   pb-3 mb-3"> <h1>Our Product</h1></div>
 </header>
 <!-- About Start -->
-<div class="container-fluid wow fadeInUp" data-wow-delay="0.1s" style="margin-top: 10px">
+<div class="container-fluid wow fadeInUp pd-top" data-wow-delay="0.1s" style="margin-top: 10px">
     <div class="container">
         @foreach ($service as $key=>$item)
 

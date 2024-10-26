@@ -17,18 +17,15 @@ class AdminServiceController extends Controller
         //
     }
     public function index2($module, $submodule)
-    {
-        // Fetching aisItems from the database
+        {
         $aisItems = AdminService::all();
 
-        // Passing both aisItems and module/submodule data to the view
         return view('admin.service_details.admin_service', [
             'aisItems' => $aisItems,
             'module' => $module,
             'submodule' => $submodule,
         ]);
     }
-
 
     /**
      * Show the form for creating a new resource.
@@ -55,8 +52,9 @@ class AdminServiceController extends Controller
         'module' => 'required|string',
         'submodule' => 'required|string',
         'module_title' => 'required|string',
-        'image_path' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
     ]);
+
     if ($request->has('id') && $request->id) {
         $aisItem = AdminService::find($request->id);
         if ($aisItem) {
@@ -73,7 +71,6 @@ class AdminServiceController extends Controller
                 $image_path->move($destinationPath, $filename);
                 $aisItem->image_path = 'public/uploads/ais_images/' . $filename;
             }
-
             $aisItem->save();
             return redirect()->back()->with('success', 'Ais post updated successfully!');
         }
@@ -93,7 +90,7 @@ class AdminServiceController extends Controller
             $image_path->move($destinationPath, $filename);
             $aisPost->image_path = 'public/uploads/ais_images/' . $filename;
         }
-
+       
         $aisPost->save();
         return redirect()->back()->with('success', 'Ais post created successfully!');
     }
@@ -146,6 +143,7 @@ class AdminServiceController extends Controller
 
      public function update(Request $request, $id)
      {
+
          $validated = $request->validate([
              'title' => 'required|string|max:255',
              'description' => 'required|string',
@@ -154,7 +152,7 @@ class AdminServiceController extends Controller
              'module_title' => 'required|string',
              'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
          ]);
-
+        //  dd($request->all());
          $aisItem = AdminService::find($id);
 
          if ($aisItem) {
@@ -205,7 +203,7 @@ class AdminServiceController extends Controller
 
             $aisItem->delete();
 
-            return redirect()->back()->with('success', 'Ais post deleted successfully!');
+            return redirect()->back()->with('success', 'Post deleted successfully!');
         } else {
             return redirect()->back()->with('error', 'Item not found');
         }

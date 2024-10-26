@@ -3507,7 +3507,7 @@ textarea.form-control-lg {
   padding: 0.5rem 0;
   margin: 0;
   font-size: 1rem;
-  color: #212529;
+  color: #212529 !important;
   text-align: left;
   list-style: none;
   background-color: #fff;
@@ -3535,6 +3535,10 @@ textarea.form-control-lg {
 .dropdown-menu-end[data-bs-popper] {
   right: 0;
   left: auto;
+}
+
+.dropdown-menu .dropdown-item{
+    color: black !important;
 }
 
 @media (min-width: 576px) {

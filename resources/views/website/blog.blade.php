@@ -94,7 +94,7 @@
     </header>
 
     <!-- Blog Section -->
-    <div class="container wow fadeInUp"  data-wow-delay="0.1s" style="position: relative">
+    <div class="container wow fadeInUp"  data-wow-delay="0.1s" style="position: relative;padding-top:5%">
         @foreach ($blogs as $blog)
             <div class="blog-card d-flex flex-column flex-md-row align-items-start mb-4">
                 <div class="content flex-grow-1 mb-3 mb-md-0">
@@ -107,7 +107,7 @@
 
                 <div class="image-container wow fadeInUp"  data-wow-delay="0.1s" >
                     @if($blog->image_path)
-                        <img src="{{ asset('public/' . $blog->image_path) }}" alt="No Image" class="img-fluid" style="max-width: 200px;">
+                        <img src="{{ asset( $blog->image_path) }}" alt="No Image" class="img-fluid" style="max-width: 200px;">
                     @else
                         <p>No Image Available</p>
                     @endif

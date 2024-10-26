@@ -12,7 +12,7 @@
                         <a href="{{ route('about.website') }}">See More</a>
                     </p>
                     <div class="d-flex">
-                        <a class="btn btn-primary btn-square me-2" href="{{ $content->twitter }}"><i class="fab fa-twitter fw-normal"></i></a>
+                        <a class="btn btn-primary btn-square me-2" href="{{ $content->twitter }}"><i class="fab fa-whatsapp fw-normal"></i></a>
                         <a class="btn btn-primary btn-square me-2" href="{{ $content->facebook }}"><i class="fab fa-facebook-f fw-normal"></i></a>
                         <a class="btn btn-primary btn-square me-2" href="{{ $content->linkedin }}"><i class="fab fa-linkedin-in fw-normal"></i></a>
                         <a class="btn btn-primary btn-square" href="{{ $content->instagram }}"><i class="fab fa-instagram fw-normal"></i></a>

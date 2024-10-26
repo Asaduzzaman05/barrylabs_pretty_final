@@ -8,7 +8,9 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="barrylabs" name="keywords">
     <meta content="ariful islam tuhin" name="description">
-    <link href="img/favicon.ico" rel="icon">
+    {{-- <link href="{{ asset('uploads/fav.png') }}" rel="icon"> --}}
+    <link rel="icon" href="{{ asset('public/uploads/fav.png') }}" type="image/png">
+
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,7 +32,7 @@
             position:relative;
             margin-left:14px;
             /* padding:35px 0; */
-            color:#fff!important;
+            color:#fff;
             font-size:15px;
             font-weight:600;
             outline:none;

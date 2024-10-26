@@ -156,3 +156,7 @@ button.note-btn.btn.btn-light.btn-sm.dropdown-toggle{
 main {
   min-height: 80vh;
 }
+.dropdown-menu .dropdown-item{
+    color: black !important;
+}
+

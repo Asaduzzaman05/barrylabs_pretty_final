@@ -194,16 +194,12 @@
     }
 }
 
-.side-image{
-    /* height: 500px; */
-
-}
 
 </style>
-<div class="row">
+<div class="row" style="padding-top: 7%">
     {{-- Comment Form Section --}}
     <div class="col-md-6">
-        <div class="comment-form-container fade-in">
+        <div class="comment-form-container fade-in" >
             <h3>Leave a Comment</h3>
             <form action="{{ route('comments.store') }}" method="POST" id="commentForm">
                 @csrf
@@ -218,7 +214,7 @@
                         <input type="text" name="phone" class="form-control" placeholder="Phone" required>
                     </div>
                     <div class="form-group col-md-12">
-                        <textarea name="comment" class="form-control" rows="3" placeholder="Comment" required></textarea>
+                        <textarea name="comment" class="form-control" rows="6" placeholder="Comment" required></textarea>
                         <input type="hidden" name="comnt_or_reply" value="comment">
                         <input type="hidden" name="blog_id" value="{{ $blogs->id }}">
                     </div>
@@ -228,7 +224,7 @@
         </div>
 
         {{-- Show Comments Section --}}
-        <div class="comments-section">
+        <div class="comments-section" >
             <h1 class="text-center">Comments</h1>
             @foreach($comments as $comment)
                 <div class="comment col-md-12">
