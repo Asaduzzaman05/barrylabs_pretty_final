@@ -9,10 +9,10 @@
         </div>
         <div class="col-lg-4 text-center text-lg-end">
             <div class="d-inline-flex align-items-center" style="height: 45px;">
-                <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="{{ $content->whatsapp ?? " " }}"><i class="fab fa-whatsapp fw-normal"></i></a>
-                <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="{{ $content->facebook }}"><i class="fab fa-facebook-f fw-normal"></i></a>
-                <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="{{ $content->linkedin }}"><i class="fab fa-linkedin-in fw-normal"></i></a>
-                <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="{{ $content->instagram }}"><i class="fab fa-instagram fw-normal"></i></a>
+                <a class="btn btn-sm btn-outline-light btn-sm-square whatsapp rounded-circle me-2" href="{{ $content->whatsapp ?? " " }}"><i class="fab fa-whatsapp fw-normal"></i></a>
+                <a class="btn btn-sm btn-outline-light btn-sm-square facebook rounded-circle me-2" href="{{ $content->facebook }}"><i class="fab fa-facebook-f fw-normal"></i></a>
+                <a class="btn btn-sm btn-outline-light btn-sm-square linkedIn rounded-circle me-2" href="{{ $content->linkedin }}"><i class="fab fa-linkedin-in fw-normal"></i></a>
+                <a class="btn btn-sm btn-outline-light btn-sm-square instra rounded-circle me-2" href="{{ $content->instagram }}"><i class="fab fa-instagram fw-normal"></i></a>
                 {{-- <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="{{ $content->instagram }}">
                     <img src="{{ asset('public/uploads/instra.jpeg') }}" alt="Instagram" style="width: 20px; height: 20px;">
                 </a> --}}

@@ -97,7 +97,14 @@
 @endsection
 @push('admin-js')
     <script src="{{ asset('public/admin/js/sweetalert2.all.js') }}"></script>
-
+    <script src="{{ asset('public/admin/js/ckeditor.js') }}"></script>
+    <script>
+        ClassicEditor
+            .create( document.querySelector( '#description' ) )
+            .catch( error => {
+                console.error( error );
+            });
+    </script>
     <script>
         $('#addBtn').show();
         $('#updateBtn').hide();

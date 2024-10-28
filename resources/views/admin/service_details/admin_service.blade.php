@@ -81,9 +81,9 @@
                         <tbody id="AisBody">
                             @foreach($aisItems as $aisItem)
                             {{-- {{ dd($aisItem->submodule) }} --}}
-                            @if(strtoupper($aisItem->submodule) == strtoupper($submodule))
+                            {{-- @if(strtoupper($aisItem->submodule) == strtoupper($submodule)) --}}
                                 <tr>
-                                    <td>{{$aisItem->iteration }}</td>
+                                    <td>01</td>
                                     <td>{{ $aisItem->title }}</td>
                                     <td style="vertical-align: middle;">{!! $aisItem->description ?? '' !!}</td>
                                     <td>
@@ -99,7 +99,7 @@
                                         </form>
                                     </td>
                                 </tr>
-                            @endif
+                            {{-- @endif --}}
                             @endforeach
                         </tbody>
                     </table>

@@ -20,7 +20,7 @@
                 </div>
             </div>
 
-            <div class="col-lg-8 col-md-6 child-class" style="width: 100%">
+            <div class="col-lg-8 col-md-6 child-class" >
                 <div class="row gx-5">
                     <div class="col-lg-4 col-md-12 pt-5 mb-3">
                         <div class="section-title section-title-sm position-relative pb-3 mb-3">
@@ -86,6 +86,6 @@
 <script>
     let element = document.querySelector('.child-class');
     let parent = element.parentElement;
-    parent.style.maxWidth = '60%';
+    parent.style.maxWidth = '100%';
 
 </script>

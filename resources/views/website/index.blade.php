@@ -22,6 +22,12 @@
 .dropdown-submenu a{
     height: 30px;
 }
+.fw-normal{
+    margin-top: 3px;
+}
+.dropdown-item:hover{
+    color: blue;
+}
 </style>
 
 
@@ -41,10 +47,10 @@
         </div>
         <div class="col-lg-4 text-center text-lg-end">
             <div class="d-inline-flex align-items-center" style="height: 45px;">
-                <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="{{ $content->twitter }}"><i class="fab fa-whatsapp fw-normal"></i></a>
-                <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="{{ $content->facebook }}"><i class="fab fa-facebook-f fw-normal"></i></a>
-                <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="{{ $content->linkedin }}"><i class="fab fa-linkedin-in fw-normal"></i></a>
-                <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="{{ $content->instagram }}"><i class="fab fa-instagram fw-normal"></i></a>
+                <a class="btn btn-sm btn-outline-light btn-sm-square whatsapp rounded-circle me-2" href="{{ $content->twitter }}"><i class="fab fa-whatsapp fw-normal"></i></a>
+                <a class="btn btn-sm btn-outline-light btn-sm-square facebook rounded-circle me-2" href="{{ $content->facebook }}"><i class="fab fa-facebook-f fw-normal"></i></a>
+                <a class="btn btn-sm btn-outline-light btn-sm-square linkedIn rounded-circle me-2" href="{{ $content->linkedin }}"><i class="fab fa-linkedin-in fw-normal"></i></a>
+                <a class="btn btn-sm btn-outline-light btn-sm-square instra rounded-circle me-2" href="{{ $content->instagram }}"><i class="fab fa-instagram fw-normal"></i></a>
                 {{-- <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle" href=""><i class="fab fa-youtube fw-normal"></i></a> --}}
             </div>
         </div>
@@ -118,7 +124,7 @@
                         </div>
                     </div>
                     <a href="{{ route('contact.website') }}" class="nav-item nav-link ">Contact</a>
-                    <a href="{{ route('blog.website') }}" class="nav-item nav-link">Blogs</a>
+                    <a href="{{ route('blog.website') }}" class="nav-item nav-link{{ in_array(Route::currentRouteName(), ['blog.website', 'blog.details']) ? 'active' : '' }}">Blogs</a>
                 </div>
 
 
@@ -272,35 +278,39 @@
 </div>
 <!-- Features Start -->
 <!-- Service Start -->
-<div class="container-fluid py-5 wow fadeInUp product_section" data-wow-delay="0.1s">
+<div class="container-fluid py-5">
     <div class="container">
-        <div class="section-title text-center position-relative pb-3 mb-3 mx-auto" style="max-width: 600px;">
-            {{-- <h5 class="fw-bold text-primary text-uppercase">Our Services</h5> --}}
-            <h1 class="mb-0 second-title fw-bold text-primary text-uppercase">Our Products</h1>
+        <div class="section-title text-center pb-3 mb-4">
+            <h1 class="mb-0 fw-bold text-primary text-uppercase">Our Products</h1>
         </div>
-        <div class="row g-3">
+        <div class="row g-3"> <!-- Use Bootstrap row for layout -->
             @foreach ($services as $item)
-           @php
-               $stype = substr($item->name, 0, 3); $slink = '';
-               if ($stype == 'SCM') { $slink = 'scm/scm'; }
-               if ($stype == 'HCM') { $slink = 'hcm/hcm'; }
-               if ($stype == 'AIS') { $slink = 'ais/ais'; }
-               if ($stype == 'PLM') { $slink = 'plm/plm'; }
-           @endphp
-            <div class="col-lg-3 col-md-3 wow zoomIn" data-wow-delay="0.9s">
-                <div class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
+            @php
+                $stype = substr($item->name, 0, 3);
+                $slink = '';
+                if ($stype == 'SCM') { $slink = 'scm/scm'; }
+                if ($stype == 'HCM') { $slink = 'hcm/hcm'; }
+                if ($stype == 'AIS') { $slink = 'ais/ais'; }
+                if ($stype == 'PLM') { $slink = 'plm/plm'; }
+            @endphp
+
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-3"> <!-- Set column size -->
+                <div class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center" style="position: relative !important">
                     <div class="service-icon">
-                    <img class="w-50" src="{{ asset($item->image) }}" alt="">
+                        <img class="w-50" src="{{ asset($item->image) }}" alt="">
                     </div>
                     <h4 class="mb-3">{{ $item->name }}</h4>
                     <p class="m-0 service-description">{!! Str::limit($item->description, 40) !!}</p>
                     <a href="{{ url('/product-page') }}" id="{{ $slink }}">Read More</a>
                 </div>
-            </div>
+
+           </div>
             @endforeach
         </div>
     </div>
 </div>
+
+
 <!-- Service End -->
 <!-- Pricing Plan Start -->
 {{-- <div class="container-fluid py-3 wow fadeInUp" data-wow-delay="0.1s">
@@ -378,7 +388,7 @@
             <div class="col-lg-7">
                 <div class="section-title position-relative pb-2 mb-2">
                     <h1 class="fw-bold text-primary text-uppercase" style="padding-top:5%">Request A Quote</h1>
-                    {{-- <h1 class="mb-0 second-title">Need A Free Quote? Please Feel Free to Contact Us</h1> --}}
+
                 </div>
                 <div class="row gx-2">
                     <div class="col-sm-6 wow zoomIn" data-wow-delay="0.2s">

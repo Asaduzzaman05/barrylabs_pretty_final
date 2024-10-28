@@ -16,13 +16,12 @@
             width: 50%;
         }
         .image-section {
-    position: relative; /* If you still need a specific positioning */
-    overflow: hidden; /* Ensures no overflow if image exceeds the container */
-}
-
-.image-section img {
-    object-fit: cover; /* Adjusts image to fill container while maintaining aspect ratio */
-}
+            position: relative;
+            overflow: hidden;
+        }
+        .image-section img {
+            object-fit: cover;
+        }
 </style>
 
 <header>
@@ -34,15 +33,15 @@
         <div class="row g-5" >
             <div class="col-lg-12" style="text-align: justify !important;">
                 <div class="row">
-                <div class="section-title position-relative pb-2 mb-2">
+                <div class="section-title-head offset-md-5 position-relative pb-2 mb-2 ">
                     {{-- <h5 class="fw-bold text-primary text-uppercase">About Us</h5> --}}
-                    <h1 class="mb-0 pd-top" >About Us</h1>
+                    <h1 class="mb-0 pd-top" style="font-size: 60px" >About Us</h1>
                 </div>
-                <div class="col-md-12 image-section">
-                    <img class="img-fluid rounded wow zoomIn" data-wow-delay="0.9s" src="{{ asset($content->about_image) }}" alt="About Image">
+                <div class="col-md-12 image-section pd-top d-flex justify-content-center">
+                    <img class="img-fluid rounded wow zoomIn " data-wow-delay="0.9s" src="{{ asset($content->about_image) }}" alt="About Image" style="width:50%">
                 </div>
 
-                <p class="mb-4 service-description " style="text-align: justify !important;">{!! $content->about_description !!}</p>
+                <p class="mb-4 service-description pd-top" style="text-align: justify !important;line-height: 1.6;">{!! $content->about_description !!}</p>
                 {{-- <div class="row g-0 mb-3">
                     <div class="col-sm-6 wow zoomIn" data-wow-delay="0.2s">
                         <h5 class="mb-3"><i class="fa fa-check text-primary me-3"></i>Award Winning</h5>

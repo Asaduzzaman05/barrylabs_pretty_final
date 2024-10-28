@@ -90,7 +90,7 @@
 
     <!-- Header -->
     <header class="col-sm-12 col-xs-12 col-md-12 ">
-        <h1>ERP Solutions Blog</h1>
+        <h1>Blogs</h1>
     </header>
 
     <!-- Blog Section -->

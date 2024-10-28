@@ -18,8 +18,12 @@ class AdminServiceController extends Controller
     }
     public function index2($module, $submodule)
         {
-        $aisItems = AdminService::all();
-
+        // $aisItems = AdminService::first();
+        // $aisItems = AdminService::latest()->first();
+        $aisItems = AdminService::where('submodule', $submodule)
+                                    ->latest()
+                                    ->take(1)
+                                    ->get();
         return view('admin.service_details.admin_service', [
             'aisItems' => $aisItems,
             'module' => $module,
@@ -90,7 +94,7 @@ class AdminServiceController extends Controller
             $image_path->move($destinationPath, $filename);
             $aisPost->image_path = 'public/uploads/ais_images/' . $filename;
         }
-       
+
         $aisPost->save();
         return redirect()->back()->with('success', 'Ais post created successfully!');
     }
@@ -121,7 +125,6 @@ class AdminServiceController extends Controller
         if (!$aisItem) {
             return redirect()->back()->with('error', 'Item not found');
         }
-
         return view('admin.service_details.admin_service', [
             'aisItem' => $aisItem,
             'module' =>  $aisItem->module,

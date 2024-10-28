@@ -283,8 +283,12 @@ class HomeController extends Controller
                                         ->orderBy('created_at', 'desc')
                                         ->first();
 
-        $data['submodules'] = AdminService::where('module', $module)
-                                        ->get();
+        $data['submodules'] = AdminService::select('submodule')
+                                          ->  where('module', $module)
+                                            ->orderBy('created_at', 'desc')
+                                            ->latest()
+                                            ->groupBy('submodule')
+                                            ->get();
 
         return view('website.website_service')->with($data);
     }

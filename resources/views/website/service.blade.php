@@ -23,8 +23,12 @@
 </style>
 
 <header>
-  <div class="section-title   pb-3 mb-3"> <h1>Our Product</h1></div>
+  {{-- <div class="section-title   pb-3 mb-3"> <h1>Our Product</h1></div> --}}
 </header>
+<div class="section-title-head offset-md-5 position-relative pb-2 mb-2 ">
+
+    <h1 class="mb-0 pd-top" style="font-size: 40px" >Our Product</h1>
+</div>
 <!-- About Start -->
 <div class="container-fluid wow fadeInUp pd-top" data-wow-delay="0.1s" style="margin-top: 10px">
     <div class="container">

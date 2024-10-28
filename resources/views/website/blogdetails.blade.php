@@ -57,31 +57,41 @@
             background-color: #1abc9c;
         }
         .blog-section{
-            min-height: 800px;
-            height: 1200px;
+            min-height: 1400px;
+        }
 
+        .image-section{
+            height: 400px;
+            width: 100%;
+        }
+        .about-image{
+            height: 300px ;
+            width: 50%;
+        }
+        .image-section {
+            position: relative;
+            overflow: hidden;
+        }
+        .image-section img {
+            object-fit: cover;
         }
 
     </style>
-
-
     <!-- Header -->
     <header >
-        <h1>ERP Solutions Blog</h1>
+        <h1>Blog</h1>
     </header>
-
     <!-- Blog Post Content -->
-    <div class="container blog-section" style="padding-top: 3%;background-color:#f8f8f8">
+
+    <div class="container blog-section wow fadeInUp" style="padding-top: 3%;background-color:#f8f8f8">
         <h2 class="blog-title">{{ $blogs->title }}</h2>
-
-        <div class="blog-content">
-            {{-- <img src="https://source.unsplash.com/1200x800/?technology,erp" alt="ERP Benefits"> --}}
-
-            <p>{{ $blogs->description }}  </p>
-
+        <div class="col-md-12  image-section pd-top  d-flex justify-content-center">
+            <img class="img-fluid rounded wow zoomIn" data-wow-delay="0.9s" src="{{ asset($blogs->image_path) }}" alt="About Image">
+        </div>
+        <div class="blog-content" style="text-align: justify !important;">
+            <p>{{ $blogs->description }}</p>
             <a href="{{ route('blog.website') }}" class="back-link">← Back</a>
         </div>
-
         @include('website.commnet')
     </div>
 

@@ -56,7 +56,25 @@
                             </tr>
                         </thead>
                         <tbody id="blogBody">
+                            @foreach($aisItems as $aisItem)
+                            <tr>
+                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $aisItem->title }}</td>
+                                <td style="vertical-align: middle;">{!! $aisItem->description ?? '' !!}</td>
+                                <td>
+                                    <img src="{{ asset($aisItem->image_path) }}" alt="" style="height: 50px; width:50px" >
 
+                                </td>
+                                <td>
+                                    <a href="{{ route('admin-service.edit', $aisItem->id) }}" class="btn btn-small btn-primary">Edit</a>
+                                    <a href="#" class="btn btn-danger" onclick="event.preventDefault(); document.getElementById('delete-form-{{ $aisItem->id }}').submit();">Delete</a>
+                                    <form id="delete-form-{{ $aisItem->id }}" action="{{ route('blog.destroy', $aisItem->id) }}" method="POST" style="display:inline;">
+                                        @csrf
+                                        @method('DELETE')
+                                    </form>
+                                </td>
+                            </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
@@ -80,31 +98,31 @@
         }
     });
     //GetChoose
-    function GetBlog(){
-        $.ajax({
-            url:'{{ route("blog.show") }}',
-            type:'GET',
-            dataType:'json',
-            success:function(response){
-                console.log(response.title);
-                data = ''
-               $.each(response, function(key, value){
-                 var key = key + 1
-                 data = data + '<tr>'
-                 data = data + '<td>'+key+'</td>'
-                 data = data + '<td>'+value.title+'</td>'
-                 data = data + '<td>'+value.description+'</td>'
-                 data = data + '<td class="text-center">'
-                 data = data + '<a href="" onclick="EditBlog('+value.id+')" class="btn btn-edit"><i class="fas fa-pencil-alt"></i></a>'
-                 data = data + '<a href="" onclick="DeleteChoose('+value.id+')" class="btn btn-delete"><i class="far fa-trash-alt"></i></a>'
-                 data = data + '</td>'
-                 data = data + '</tr>'
-               })
-               $('#blogBody').html(data);
-            }
-        })
-    }
-    GetBlog();
+    // function GetBlog(){
+    //     $.ajax({
+    //         url:'{{ route("blog.show") }}',
+    //         type:'GET',
+    //         dataType:'json',
+    //         success:function(response){
+    //             console.log(response.title);
+    //             data = ''
+    //            $.each(response, function(key, value){
+    //              var key = key + 1
+    //              data = data + '<tr>'
+    //              data = data + '<td>'+key+'</td>'
+    //              data = data + '<td>'+value.title+'</td>'
+    //              data = data + '<td>'+value.description+'</td>'
+    //              data = data + '<td class="text-center">'
+    //              data = data + '<a href="" onclick="EditBlog('+value.id+')" class="btn btn-edit"><i class="fas fa-pencil-alt"></i></a>'
+    //              data = data + '<a href="" onclick="DeleteChoose('+value.id+')" class="btn btn-delete"><i class="far fa-trash-alt"></i></a>'
+    //              data = data + '</td>'
+    //              data = data + '</tr>'
+    //            })
+    //            $('#blogBody').html(data);
+    //         }
+    //     })
+    // }
+    // GetBlog();
 
   // Choose edit data
   function EditBlog(id){
@@ -168,7 +186,7 @@
     event.preventDefault();
      $.ajax({
         type:'DELETE',
-        url:'{{ url("choose-us-delete") }}/' + id,
+        url:'{{ url("delete-blog") }}/' + id,
         dataType:'json',
         success:function(data){
             if(data){
@@ -180,7 +198,6 @@
         }
      })
   }
-
     function deleteUser(id) {
             swal({
                 title: 'Are you sure?',

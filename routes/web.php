@@ -128,12 +128,11 @@ Route::group(['middleware' => ['auth']] , function(){
     Route::put('website-content-update/{id}', [CompanyProfileController::class, 'update'])->name('company.profile.update');
     //blog admin side
     Route::get('/create-blog',[BlogController::class,'index'])->name('blog.index');
-
-    // Route::post('/store-blog', [BlogController::class, 'store'])->name('blog.store');
+    Route::delete('blog/{id}', [BlogController::class, 'destroy'])->name('blog.destroy');
     Route::post('/store-blog', [BlogController::class, 'store'])->name('blog.store');
     Route::get('/store-blog-all',[BlogController::class,'allblogs'])->name('blog.show');
-    Route::get('/edit-blog/{id}',[BlogController::class,'edit'])->name('blog.edit');
-    Route::post('/blog-update/{id}',[WhyChooseController::class,'update'])->name('blog.update');
+    // Route::get('/edit-blog/{id}',[BlogController::class,'edit'])->name('blog.edit');
+    Route::post('/blog-update/{id}',[BlogController::class,'update'])->name('blog.update');
 
 
     // Route::resource('admin-ais',  AdminAis::class);
