@@ -17,8 +17,13 @@ header h1 {
 }
 </style>
     <header class="col-sm-12 col-xs-12 col-md-12 ">
-        <h1>Contact Us</h1>
+        <h1></h1>
     </header>
+
+    <div class="section-title-head offset-md-5  position-relative pb-2 mb-2 pd-top" >
+
+        <h1 class="mb-0 pd-top" style="font-size: 40px;margin-left:25px" >Contact Us</h1>
+    </div>
 
 </div>
 <div class="modal fade" id="searchModal" tabindex="-1">

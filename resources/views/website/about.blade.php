@@ -22,6 +22,9 @@
         .image-section img {
             object-fit: cover;
         }
+        body{
+            overflow-x: hidden !important;
+        }
 </style>
 
 <header>

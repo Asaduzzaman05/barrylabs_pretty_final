@@ -22,7 +22,7 @@ class BlogController extends Controller
         $validated = $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'required|string',
-            'image_path' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image_path' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:20480',
         ]);
 
         $blogPost = new BlogPost();
@@ -81,7 +81,7 @@ class BlogController extends Controller
              'module' => 'required|string',
              'submodule' => 'required|string',
              'module_title' => 'required|string',
-             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:20480',
          ]);
         //  dd($request->all());
          $aisItem = BlogPost::find($id);

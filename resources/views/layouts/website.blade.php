@@ -39,7 +39,7 @@
             transition:.5s
         }
         .sticky-top.navbar-light .navbar-nav .nav-link{
-            padding:20px 0;
+            /* padding:20px 0; */
             color:var(--dark)!important
         }
         .navbar-light .navbar-nav .nav-link:hover,.navbar-light .navbar-nav .nav-link.active{

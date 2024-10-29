@@ -56,100 +56,38 @@ class BannerController extends Controller
         $sliders = Slider::find($id);
         return view('admin.banner.edit',compact('sliders'));
     }
-
-    // public function update(Request $request,$id){
-    //     $request->validate([
-    //         'slider_title_one'  => 'required',
-    //         'image'  => 'image|mimes:jpg,png,gif',
-    //     ]);
-    //     dd($request->all());
-    //    try{
-    //         DB::beginTransaction();
-    //         $sliders = Slider::find($id);
-    //         $sliders->slider_title_one = $request->slider_title_one;
-    //         $sliders->slider_title_two = $request->slider_title_two;
-    //         $slider_image = '';
-    //         if($request->hasFile('image')){
-    //             if (file_exists($sliders->image )) {
-    //                 @unlink($sliders->image);
-    //             }
-    //         $image = $request->file('image');
-    //         $extension = $image->getClientOriginalExtension();
-    //         $fileName = rand(111, 99999) . '.' . $extension;
-    //         $imageResize = Image::make($image->getRealPath());
-    //         $imageResize->resize(1435,350);
-    //         $imageResize->save(public_path('public/uploads/slider/' . $fileName));
-    //         $slider_image  = 'public/uploads/slider/' . $fileName;
-    //         }
-    //         else{
-    //         $slider_image = $sliders->image;
-    //         }
-    //         $sliders->image = $slider_image;
-    //         $sliders->save();
-
-    //         DB::commit();
-    //         Session::flash('success','Slider Update Seccessfuly');
-    //         return redirect()->route('slider.create');
-    //    }catch(Exception $e){
-    //        DB::rollBack();
-    //        return $e->getMessage();
-    //        Session::flash('error','Something Is worng');
-    //        return redirect()->route('slider.create');
-    //    }
-
-    // }
-
-    public function update(Request $request, $id)
+public function update(Request $request, $id)
 {
-    // Validate the incoming request data
-    $request->validate([
-        'slider_title_one' => 'required',
-        'image' => 'image|mimes:jpg,png,gif',
+        $validated = $request->validate([
+        'slider_title_one' => 'required|string|max:255',
+        'slider_title_two' => 'required|string|max:255',
+        'image' => 'nullable|image|mimes:jpg,png,gif|max:20480',
     ]);
-
     try {
         DB::beginTransaction();
+        $slider = Slider::findOrFail($id);
+        $slider->slider_title_one = $validated['slider_title_one'];
+        $slider->slider_title_two = $validated['slider_title_two'];
 
-        // Find the slider by ID
-        $sliders = Slider::findOrFail($id); // Use findOrFail to throw an exception if not found
-        $sliders->slider_title_one = $request->slider_title_one;
-        $sliders->slider_title_two = $request->slider_title_two;
-
-        // Handle the image upload
-        $slider_image = '';
         if ($request->hasFile('image')) {
-            // Delete the old image if it exists
-            if (file_exists(public_path($sliders->image))) {
-                @unlink(public_path($sliders->image));
+            if (file_exists(public_path($slider->image))) {
+                @unlink(public_path($slider->image));
             }
-
-            // Process the new image
             $image = $request->file('image');
             $extension = $image->getClientOriginalExtension();
-            $fileName = rand(111, 99999) . '.' . $extension;
-
-            // Resize and save the new image
+            $fileName = time() . '.' . $extension;
             $imageResize = Image::make($image->getRealPath());
             $imageResize->resize(1435, 350);
             $imageResize->save(public_path('uploads/slider/' . $fileName));
-
-            // Set the new image path
-            $slider_image = 'uploads/slider/' . $fileName;
-        } else {
-            // If no new image, keep the old image
-            $slider_image = $sliders->image;
+            $slider->image = 'uploads/slider/' . $fileName;
         }
-
-        // Update the image path in the slider
-        $sliders->image = $slider_image;
-        $sliders->save();
-
+        $slider->save();
         DB::commit();
         Session::flash('success', 'Slider updated successfully');
         return redirect()->route('slider.create');
     } catch (Exception $e) {
         DB::rollBack();
-        Session::flash('error', 'Something went wrong');
+        Session::flash('error', 'Something went wrong: ' . $e->getMessage());
         return redirect()->route('slider.create');
     }
 }

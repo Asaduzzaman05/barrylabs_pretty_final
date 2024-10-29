@@ -12,8 +12,9 @@
             Slider
         </div>
         <div class="card-body table-card-body p-3 mytable-body">
-            <form action="{{route('slider.update',$sliders->id)}}" method="post" enctype="multipart/form-data">
+            {{-- <form action="{{route('slider.update',$sliders->id)}}" method="post" enctype="multipart/form-data">
                 @csrf
+                @method('PUT')
                 <div class="row">
                     <div class="col-md-8">
                         <div class="row">
@@ -50,7 +51,54 @@
                         <button type="submit" class="btn btn-primary mt-2 float-right" value="Submit">Update</button>
                     </div>
                 </div>
+            </form> --}}
+            <form action="{{ route('slider.update', $sliders->id) }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                @method('PUT')
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <strong><label>Slider Title One</label></strong>
+                            </div>
+                            <div class="col-md-10">
+                                <input type="text" name="slider_title_one" class="form-control" value="{{ old('slider_title_one', $sliders->slider_title_one) }}" required>
+                                @error('slider_title_one')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <strong><label>Slider Title Two</label></strong>
+                            </div>
+                            <div class="col-md-10">
+                                <input type="text" name="slider_title_two" class="form-control" value="{{ old('slider_title_two', $sliders->slider_title_two) }}" required>
+                                @error('slider_title_two')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label>Slider Image</label>
+                            </div>
+                            <div class="col-md-8">
+                                <input type="file" name="image" class="form-control" onchange="readURL(this);">
+                            </div>
+                            <div class="col-md-3 mt-1">
+                                <img class="form-control img-thumbnail" src="{{ asset($sliders->image) }}" id="previewImage" style="width: 100px; height: 80px; background: #3f4a49;">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-primary mt-2 float-right">Update</button>
+                    </div>
+                </div>
             </form>
+
         </div>
    </div>
 </div>

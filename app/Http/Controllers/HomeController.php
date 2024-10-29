@@ -25,6 +25,7 @@ use App\Models\InvoiceModel;
 use App\Models\CourierModel;
 use App\Models\ChallanModel;
 use App\Models\InventoryModel;
+use DB;
 
 
 
@@ -95,6 +96,7 @@ class HomeController extends Controller
         $data['blogs'] = BlogPost::find($id);
         $data['commentCount'] = Comment::where('blog_id', $id)->count();
         $data['comments'] = Comment::orderBy('id', 'desc')->where('blog_id', $id)->get();
+        $data['topBlogs'] = BlogPost::orderBy('views', 'desc')->take(5)->get();
         foreach ($data['comments'] as $comment) {
             $comment->replies = ReplyComment::orderBy('id', 'desc')->where('comment_id', $comment->id)->get();
         }
@@ -283,13 +285,28 @@ class HomeController extends Controller
                                         ->orderBy('created_at', 'desc')
                                         ->first();
 
-        $data['submodules'] = AdminService::select('submodule')
-                                          ->  where('module', $module)
+        // $data['submodules'] = AdminService::select('submodule')
+        //                                   ->  where('module', $module)
+        //                                     ->orderBy('created_at', 'desc')
+        //                                     ->latest()
+        //                                     ->groupBy('submodule')
+        //                                     ->get();
+        // $data['submodules'] = AdminService::select('submodule', 'title', 'description', 'image_path', DB::raw('MAX(created_at) as latest_created_at'))
+        //                            ->where('module', $module)
+        //                            ->groupBy('submodule', 'title', 'description', 'image_path')
+        //                            ->orderByDesc('latest_created_at')
+        //                            ->get();
+        $data['submodules'] = AdminService::select('submodule', 'title', 'description', 'image_path')
+                                            ->where('module', $module)
+                                            ->whereColumn('submodule', '!=', 'module')
+                                            ->whereIn('id', function($query) {
+                                                // Select the latest id for each submodule
+                                                $query->select(DB::raw('MAX(id)'))
+                                                    ->from('admin_services')
+                                                    ->groupBy('submodule');
+                                            })
                                             ->orderBy('created_at', 'desc')
-                                            ->latest()
-                                            ->groupBy('submodule')
                                             ->get();
-
         return view('website.website_service')->with($data);
     }
 }

@@ -3,7 +3,6 @@
 .dropdown-submenu {
     position: relative;
 }
-
 .dropdown-submenu .dropdown-menu {
     top: 0;
     left: -65%;
@@ -11,18 +10,15 @@
     display: none;
     color: black !important;
 }
-
 .dropdown-submenu:hover .dropdown-menu {
     display: block;
 }
-
 .dropdown-menu a{
     color: black !important;
 }
 .dropdown-submenu .dropdown-item{
     color: black !important;
 }
-
 .dropdown-submenu a{
     height: 30px;
 }

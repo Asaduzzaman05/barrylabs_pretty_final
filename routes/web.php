@@ -79,7 +79,9 @@ Route::group(['middleware' => ['auth']] , function(){
     Route::get('slider-create',[BannerController::class, 'index'])->name('slider.create');
     Route::post('slider-store',[BannerController::class, 'store'])->name('slider.store');
     Route::get('slider-edit/{id}',[BannerController::class, 'edit'])->name('slider.edit');
-    Route::post('slider-update/{id}',[BannerController::class, 'update'])->name('slider.update');
+    // Route::post('slider-update/{id}',[BannerController::class, 'update'])->name('slider.update');
+    Route::put('/slider/{id}', [BannerController::class, 'update'])->name('slider.update');
+
     Route::delete('slider-delete/{id}',[BannerController::class, 'delete'])->name('slider.destroy');
     //Photo Gallary Route
     Route::get('/photo',[PhotoGellaryController::class,'index'])->name('photo.index');

@@ -5,7 +5,7 @@
         <div class="row gx-5"  >
             <div class="col-lg-4 col-md-6 footer-about">
                 <div class="d-flex flex-column align-items-center justify-content-center h-100">
-                    <a href="{{ route('home') }}" class="navbar-brand">
+                    <a href="{{ route('home') }}" class="navbar-brand" style="background-color: #f8f8f8">
                         <img class="logo-img" src="{{ asset($content->logo) }}" alt="">
                     </a>
                     <p class="">{!! Str::limit($content->about_description, 79) !!}

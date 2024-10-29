@@ -65,18 +65,21 @@
         <h2 class="text-center pd-top"> Submodules</h2>
         <div class="container pd-top">
             <div class="row">
+
+                <div class="owl-carousel team-carousel">
                     @foreach ($submodules as $submodule)
-                        <div class="col-lg-3 col-md-3 wow zoomIn" data-wow-delay="0.9s" style="margin-bottom:20px">
-                            <div class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
-                                <div class="service-icon ">
-                                        <img class="w-50" src="{{ asset($submodule->image ?? '') }}" alt="">
-                                </div>
-                                <h4 class="mb-3">{{ strtoupper($submodule->submodule ?? '') }}</h4>
-                                <p class="m-0 service-description">{!! Str::limit($submodule->description, 40) !!}</p>
-                                <a href="{{ url('our_service/' . $module . '/' . $submodule->submodule) }}">Read More ...</a>
+                        <div class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
+                            <div class="service-icon">
+                                <img class="w-50" src="{{ asset($submodule->image ?? '') }}" alt="">
                             </div>
+                            <h4 class="mb-3">{{ strtoupper($submodule->submodule ?? '') }}</h4>
+                            <p class="m-0 service-description">{!! Str::limit($submodule->description, 40) !!}</p>
+                            <a href="{{ url('our_service/' . $module . '/' . $submodule->submodule) }}">Read More ...</a>
                         </div>
                     @endforeach
+                </div>
+
+
             </div>
         </div>
     </div>

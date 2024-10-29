@@ -40,7 +40,7 @@ class AdminHcm extends Controller
             $validated = $request->validate([
                 'title' => 'required|string|max:255',
                 'description' => 'required|string',
-                'image_path' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+                'image_path' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:20480',
             ]);
 
             $HcmPost = new HcmModel();

@@ -198,7 +198,7 @@
 </style>
 <div class="row" style="padding-top: 7%">
     {{-- Comment Form Section --}}
-    <div class="col-md-6">
+    <div class="col-md-12">
         <div class="comment-form-container fade-in wow fadeInUp">
             <h3>Leave a Comment</h3>
             <form action="{{ route('comments.store') }}" method="POST" id="commentForm">
@@ -252,10 +252,10 @@
     </div>
 
     {{-- Image Section --}}
-    <div class="col-md-6 img">
+    {{-- <div class="col-md-6 img">
         <img src="{{ asset('public/uploads/service/erp.jpg') }}" alt="no image" class="img-fluid side-image">
 
-    </div>
+    </div> --}}
 </div>
 
 @include('website.replycomment')

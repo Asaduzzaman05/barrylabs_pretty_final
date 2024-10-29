@@ -68,11 +68,14 @@
             $('.back-to-top').fadeOut('slow');
         }
     });
+    // $('.back-to-top').click(function () {
+    //     $('html, body').animate({scrollTop: 0}, 1500, 'easeInOutExpo');
+    //     return false;
+    // });
     $('.back-to-top').click(function () {
-        $('html, body').animate({scrollTop: 0}, 1500, 'easeInOutExpo');
+        $(window).scrollTop(0); 
         return false;
     });
-
 
      //team member
      $('.team-carousel').owlCarousel({

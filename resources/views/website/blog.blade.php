@@ -90,9 +90,11 @@
 
     <!-- Header -->
     <header class="col-sm-12 col-xs-12 col-md-12 ">
-        <h1>Blogs</h1>
+        {{-- <h1>Blogs</h1> --}}
     </header>
-
+    <div class="section-title offset-md-5  position-relative pb-2 mb-2 pd-top" >
+        <h1 class="mb-0 pd-top" style="font-size: 40px;margin-left:25px" >Blogs</h1>
+    </div>
     <!-- Blog Section -->
     <div class="container wow fadeInUp"  data-wow-delay="0.1s" style="position: relative;padding-top:5%">
         @foreach ($blogs as $blog)

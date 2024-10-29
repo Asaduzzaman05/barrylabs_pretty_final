@@ -56,7 +56,7 @@ class AdminServiceController extends Controller
         'module' => 'required|string',
         'submodule' => 'required|string',
         'module_title' => 'required|string',
-        'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:20480',
     ]);
 
     if ($request->has('id') && $request->id) {
@@ -153,7 +153,7 @@ class AdminServiceController extends Controller
              'module' => 'required|string',
              'submodule' => 'required|string',
              'module_title' => 'required|string',
-             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:20480',
          ]);
         //  dd($request->all());
          $aisItem = AdminService::find($id);
